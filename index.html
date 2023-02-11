@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SASS</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+      integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp"
+      crossorigin="anonymous"
+    />
+
+    <!-- agregamos los iconos -->
+    <script src="https://kit.fontawesome.com/7c8eda7af7.js" crossorigin="anonymous"></script>
+    <!-- ------------ -->
+</head>
+<body>
+    <header>
+        <!-- Creamos dos divisiones "logo" y "nav" -->
+        <div class="logo">
+            <a href="#index">SASS</a>
+        </div>
+        <!-- Icono de la barra -->
+        <div class="menu-icon">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+        <div class="nav">
+            <!-- Esto es un atajo que permite crear las listas -->
+            <!-- ul>li*4>a  -->
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#signup" class="green-class">Sign Up</a></li>
+            </ul>
+        </div>
+        <!-- Fin de las divisiones de la barra principal -->
+    </header>
+
+    <!-- entramos al elemento MAIN -->
+    <main>
+        <!-- Invocamos al contenedor -->
+        <div class="container">
+            <!-- Parte iquierda del contenedor -->
+            <div class="left-col">
+                <h1>They are coming</h1>
+                <h2>Be Prepared</h2>
+                <p>Sign up now to join the list.</p>
+                <button class="green-class"><a href="#signup">Sign Up</a></button>
+            </div>
+            <!-- Parte derecha del contenedor -->
+            <div class="right-col">
+                <img src="images/img-2.svg" alt="image">
+            </div>
+        </div>
+        <!-- Cerramos el contenedor del primer contenido -->
+    </main>
+</body>
+</html>
+

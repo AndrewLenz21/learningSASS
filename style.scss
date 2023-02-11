@@ -1,0 +1,217 @@
+//Comenzamos con los elementos de la barra de navegacion
+
+//Agregamos una funcion mixin
+
+@mixin reset{
+    margin: 0;
+    padding: 0;
+}
+
+@mixin align-center {
+    display: flex;  //este puede eliminar la enumeracion de las listas
+    align-items: center;
+}
+
+// Agregamos dimensiones de pantalla
+@mixin tablet{
+    @media screen and (max-width: 768px){
+        @content;
+    }
+}
+@mixin mobile{
+    @media screen and (max-width:280){
+        @content;
+    }
+}
+
+
+//Definimos algunos colores
+$light: #f7f7f7;
+$dark: #222121;
+$line: #00cc66;
+$orangeRed: #fb4b4e;
+$blue: #2541b2;
+
+*{
+    @include reset();
+    box-sizing: border-box;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+
+// EDITAMOS LA BARRA DE NAVEGACION PRINCIPAL
+header{
+    background: $light;
+    height: 80px;      //Aumentamos la altura de la barra de navegacion
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem calc((100vw - 1200px)/2);
+    z-index: 10;
+    position: relative;
+    .logo{
+        float: left;
+        @include align-center();
+        a{
+            color: $dark;
+            text-decoration: none;
+            font-size: 2rem;
+            margin-left: 24px;
+            cursor: pointer;
+        }
+    }
+    .menu-icon{
+        opacity: 0;
+
+        @include tablet {
+            color: $dark;
+            opacity: 1;
+            position: absolute;
+            top: 22px;
+            right: 20px;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+    }
+    .nav{
+        //Ordenando la lista UL
+        ul{
+            //Configruacion de UL
+            @include align-center();
+            position: relative;
+            float: right;
+
+            @include tablet{
+                display: none;
+            }
+            //Configuracion de LI
+            li{
+                @include align-center();
+                // list-style: none;
+                // display: inline-block;
+                padding: 10px 0px;
+
+                a{
+                    color: $dark;
+                    padding: 12px 16px;
+                    text-decoration: none;
+                    transition: all 0.4s ease;
+
+                    //Si el cursor esta encima de...
+                    &:hover{
+                        color: #00cc66;
+                    }
+                }
+                .green-class{
+                    background-color: #00cc66;
+                    color: #fff;
+                    border-radius: 4px;
+                    padding: 12px 24px;
+                    margin-left: 16px;
+                    margin-right: 24px;
+                    &:hover{
+                        background-color: #fb4b4e;
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+}
+
+main{
+    background-color: $light;
+    .container {
+        display: flex;
+        align-items: center;
+        margin: 0 auto;
+        height: 90vh;
+        z-index: 1;
+        width: 100%;
+        max-width: 1200px;
+        padding: 0 24px;
+
+        @include tablet{
+            flex-direction: column;
+            grid-template-columns: 1fr;
+            height: 100%;
+        }
+
+        .left-col{
+            width: 50%;
+            line-height: 1.2;
+
+            @include tablet{
+                width: 100%;
+                padding: 80px 0;
+                line-height: 1.2;
+            }
+            @include mobile{
+                line-height: 1.5;
+            }
+
+            h1{
+                font-size: 4rem;
+                color: #00cc66;
+
+                @include mobile{
+                    font-size: 1.5rem;
+                }
+            }
+            h2{
+                font-size: 4rem;
+                color: $dark;
+
+                @include mobile{
+                    font-size: 2rem;
+                }
+            }
+            p{
+                font-size: 2rem;
+                color: $dark;
+                margin-top: 1rem;
+                font-weight: 700;
+
+                @include mobile{
+                    font-size: 1.5rem;
+                }
+            }
+            button{
+                font-size: 1rem;
+                background-color: #00cc66;
+                border: none;
+                border-radius: 4px;
+                padding: 14px 32px;
+                margin-top: 2rem;
+                transition: all 0.5s;
+                cursor: pointer;
+                position: relative;
+                outline: none;
+                a{
+                    position: relative;
+                    z-index: 2;
+                    color: $light;
+                    text-decoration: none;
+                }
+    
+                &:hover{
+                    background-color: #fb4b4e;
+                    color: #fff;
+                }
+                
+            }
+        }
+        .right-col{
+            width: 50%;
+            text-align: center;
+            img{
+                width: 100%;
+                height: 100%;
+            }
+            @include tablet{
+                width: 100%;
+            }
+        }
+    }
+}
+
+
+  
